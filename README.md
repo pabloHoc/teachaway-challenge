@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# TeachAway Frontend Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to run this project
 
-## Available Scripts
+- Clone the project: `https://github.com/pabloHoc/teachaway-challenge`
+- Move to the project's root folder: `cd teachway-challenge`
+- Install dependencies: `npm install`
+- Start the app: `npm start`
+- You can now view the project running in the browser: `http://localhost:3000`
 
-In the project directory, you can run:
+## Approach
 
-### `yarn start`
+Unfortunately, I didn't have a lot of time for this challenge, so I decided to implement only the most basic functionality and styles. Some decisions I've taken to accomplish it are the following:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- For simplicity's sake, the app shows only album images. Otherwise, I'd have to do some conditional checks and handle two cases for each feature, which would have added more complexity and took longer to implement.
+- Use of CSS modules. The app's appearance is too basic and doesn't need dynamic styles nor complex components with multiple variants; two things CSS-in-JS handles better.
+- No state management library. The app is simple enough to rely on React's state and prop drilling, so I didn't use a more complex solution (e.g., Redux).
+- Non-reusable components. The components used aren't flexible enough to be reused.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+There's also a lot of room for improvements. Some things I'd like to have done if I'd have more time are (in no preferred order):
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Testing**.
+- **Error handling:** I didn't have time to add an Error Boundary component, and currently, if there is some problem (especially with an API request), the app explodes.
+- **Performance:** I would analyze if there are components with unnecessary re-renders and function calls or API requests that could be cached. Performance could also be improved by prefetching some requests (next page and details) and requesting smaller images.
+- **PropTypes:** (or Typescript depending on the project size): Some components require props with some specific data structure. Typing them would prevent a lot of bugs and serve as component documentation.
+- **Fix bugs:**
+  Steps to reproduce:
+  Choose some filter combination with unique options (e.g., user + rising)
+  Change to another combination that doesn't include one of the previous ones (e.g., viral, doesn't have a "rising" option)
+  Check the network tab. The request sent has those parameters nonetheless (e.g., viral + rising).
+  Since the API returns a response with the default option, and the dropdown also changes to the default option (e.g., viral + popular), the images rendered match the current filters. This implementation is faulty (relies on proper select's options ordering) and needs to be improved.
+- **Better UX:** The user experience could be improved by a lot. Some things that could be added:
+  - Icons
+  - Keep scroll position
+  - Infinite Scroll
+  - Skeleton components
+  - Loaders
+  - Errors messages
+- **Better Styling:** The app right now is visually rough and needs a lot of care.
+- **Better theming:** In a bigger application, I'd use a proper theming system and a UI component library.
+- **Better a11y:** Accessibility wasn't taken into account, and needs to be addressed. I would check for accessibility issues (color contrast, keyboard navigation, etc.) and proper HTML semantics.
+- **Add a 404 page**.
+- **Responsiveness:** I would ensure that the design works in different resolutions.
+- **Using environment variables:** The Client API key is hardcoded. I would use env variables instead.

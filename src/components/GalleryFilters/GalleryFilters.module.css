@@ -1,0 +1,25 @@
+.filtersContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 8px;
+}
+
+.filtersContainer select {
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #babec4;
+  border: 0;
+  background-color: transparent;
+}
+
+.viralCheckbox {
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #babec4;
+  margin-left: 20px;
+}

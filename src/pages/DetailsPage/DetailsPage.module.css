@@ -1,0 +1,29 @@
+.detailsContainer {
+  color: #fff;
+}
+
+.stats {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 60px;
+}
+
+.stats > li {
+  margin-right: 10px;
+}
+
+.media {
+  width: 100%;
+}
+
+.goBackLink {
+  display: block;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #babec4;
+  text-decoration: none;
+  margin-left: auto;
+}
